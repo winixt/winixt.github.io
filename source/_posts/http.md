@@ -16,7 +16,7 @@ HTTP 超文本传输协议(Hypertext Transper Protocol)，应用层协议。基�
 
 接下来我们从常用请求方法、HTTP Headers、响应状态码、跨资源共享 4 个方面进行分析。
 
-### 1. 常用请求方法
+### 常用请求方法
 
 虽然 HTTP 规范定义一系列方法，但是常用的无非 GET、POST、HEAD、CONNECT；
 
@@ -40,11 +40,11 @@ HTTP 超文本传输协议(Hypertext Transper Protocol)，应用层协议。基�
 
 
 
-### 2. HTTP Headers
+### HTTP Headers
 
 HTTP 规范也定义了一系列 Headers 信息，但是大部分不需要我们开发人员关心，浏览器已经帮我们实现号了。我们来看看几个比较重要的 Headers 信息。
 
-###### 2.1 Content-Type
+#### Content-Type
 
 在响应中，Content-Type标头告诉客户端实际返回的内容的内容类型，如：
 
@@ -77,7 +77,7 @@ boundary
 
 对于多部分实体，boundary 是必需的，其包括来自一组字符的1到70个字符，已知通过电子邮件网关是非常健壮的，而不是以空白结尾。它用于封装消息的多个部分的边界。
 
-###### 2.2 Cookie
+#### Cookie
 
 HTTP Cookie（也叫Web Cookie或浏览器Cookie）是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。
 
@@ -87,7 +87,7 @@ Cookie 主要用于以下三个方面：
 * 个性化设置（如用户自定义设置、主题等）
 * 浏览器行为跟踪（如分析用户行为等）
 
-###### 2.3 跨资源请求相关 Header
+#### 跨资源请求相关 Header
 
 Access-Control-Allow-Origin 等信息，具体看下文[跨资源共享模块]
 
@@ -95,9 +95,9 @@ Access-Control-Allow-Origin 等信息，具体看下文[跨资源共享模块]
 
 
 
-### 3. 响应状态码
+### 响应状态码
 
-###### 3.1 状态码分为5大类：
+#### 状态码分为5大类：
 
 * 1XX（信息描述）：接受的请求正在处理
 * 2XX（成功状态）：请求正常处理完毕。其中 206 表示请求部分内容成功
@@ -105,7 +105,7 @@ Access-Control-Allow-Origin 等信息，具体看下文[跨资源共享模块]
 * 4XX （客户端错误）：服务器无法处理请求
 * 5XX （服务器错误）：服务器处理请求出错
 
-###### 3.2 常用状态码
+#### 常用状态码
 
 * 200: 客户端请求成功
 * 301: 资源永久重定向
@@ -122,7 +122,7 @@ Access-Control-Allow-Origin 等信息，具体看下文[跨资源共享模块]
 
 
 
-### 4. 跨资源访问（CORS）
+### 跨资源访问（CORS）
 
 当一个资源从与该资源本身所在的服务器不同域或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。跨域资源共享标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站有权访问哪些资源。
 
@@ -134,7 +134,7 @@ Access-Control-Allow-Origin 等信息，具体看下文[跨资源共享模块]
 1. 对于可能对服务器产生副作用的 HTTP 请求方法，浏览器必须首先使用 OPTIONS 方法发起一个预测请求，从而获知服务端是否允许跨域请求，服务器确认允许之后，才发起实际的HTTP 请求。在预测请求的返回中，服务端也可以通知客户端，是否需要携带身份凭证。
 2. 有些浏览器不允许从 HTTPS 的域跨域访问 HTTP，比如 Chrome 和 Firefox，这些请求还为发起就被拦截。
 
-###### 4.1 一个源的定义
+#### 一个源的定义
 
 如果协议、端口和域名对于当前访问页面是相同的，则两个页面同源。
 
@@ -153,7 +153,7 @@ Access-Control-Allow-Origin 等信息，具体看下文[跨资源共享模块]
 * 授信范围：两个相互之间高度互信的域名，如公司域名，不遵守同源策略的限制。
 * 端口：IE 未将端口号加入到同源策略的组成成分之中。
 
-###### 4.2 简单请求
+#### 简单请求
 
 满足下列条件的请求，可被视为“简单请求”：
 
@@ -213,7 +213,7 @@ Content-Type: application/xml
 
 
 
-###### 4.3 需要检测的请求
+#### 需要检测的请求
 
 如前文所述，需要检测的请求，需要先发起一个 OPTIONS 预检请求到服务器， 满足下述任意条件时，应首先发起预检请求：
 
@@ -352,7 +352,7 @@ Access-Control-Max-Age: 86400
 
 
 
-###### 4.3 附带身份凭证的请求
+#### 附带身份凭证的请求
 
 Fetch 与 CORS 的一个有趣的特性是，可以基于 HTTP cookies 和 HTTP 认证信息发送身份凭证。一般而言，对于跨域 XMLHttpRequest 或 Fetch 请求，浏览器不会发送身份凭证信息。如果要发送凭证信息，需要设置 XMLHttpRequest 的某个特殊标识位。
 
@@ -391,23 +391,23 @@ let requestConfig = {
 
 
 
-###### 4.4 附带身份凭证的请求与通配符
+#### 附带身份凭证的请求与通配符
 
 对于附带身份凭证的请求，服务器不得设置 Access-Control-Allow-Origin 的值为"*"。
 
 这是因为请求的首部中携带了 Cookie 的信息，如果  Access-Control-Allow-Origin 的值为 “*”，请求将会失败。
 
-###### 4.5 form 表单的跨域问题
+#### form 表单的跨域问题
 
 当 form 表单跨域提交数据的时候，原页面会跳转到新页面（这样原页面脚本便无法获取新页面的内容，浏览器因此认为是安全的），相当于 a 标签跳转一样，因而会带上缓存在本地的新页面的 cookie，并且可以提交成功。（这也是 csrf 能攻击成功，而不会被同源策略限制的原因）
 
 但是因为不同源之间的跳转，request 也会带上 origin，refer等字段，可以依据这些字段限制不可信的跨域访问，这些涉及到 csrf 防御的问题了，在另一篇 csrf 防御和攻击有详细说明。
 
-### 5. HTTP 响应首部字段
+### HTTP 响应首部字段
 
 本节列出了规范所定义的响应首部字段。上一小节中，我们已经看到了这些首部字段在实际场景中是如何工作的。
 
-###### 5.1 Access-Control-Allow-Origin
+####  Access-Control-Allow-Origin
 
 响应首部中可以携带一个 [`Access-Control-Allow-Origin`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Access-Control-Allow-Origin)` 字段，其语法如下:`
 
@@ -425,7 +425,7 @@ Access-Control-Allow-Origin: http://mozilla.com
 
 如果服务端指定了具体的域名而非“*”，那么响应首部中的 Vary 字段的值必须包含 Origin。这将告诉客户端：服务器对不同的源站返回不同的内容。
 
-###### 5.2 Access-Control-Expose-Headers
+#### Access-Control-Expose-Headers
 
 译者注：在跨域访问时，XMLHttpRequest对象的getResponseHeader()方法只能拿到一些最基本的响应头，Cache-Control、Content-Language、Content-Type、Expires、Last-Modified、Pragma，如果要访问其他头，则需要服务器设置本响应头。
 
@@ -437,7 +437,7 @@ Access-Control-Expose-Headers: X-My-Custom-Header, X-Another-Custom-Header
 
 这样浏览器就能够通过getResponseHeader访问`X-My-Custom-Header`和 `X-Another-Custom-Header` 响应头了`。`
 
-###### 5.3 Access-Control-Max-Age
+#### Access-Control-Max-Age
 
 [`Access-Control-Max-Age`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Access-Control-Max-Age) 头指定了preflight请求的结果能够被缓存多久，请参考本文在前面提到的preflight例子。
 
@@ -447,7 +447,7 @@ Access-Control-Max-Age: <delta-seconds>
 
 `delta-seconds` 参数表示preflight请求的结果在多少秒内有效。
 
-###### 5.4 Access-Control-Allow-Credentials
+#### Access-Control-Allow-Credentials
 
 [`Access-Control-Allow-Credentials`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials) 头指定了当浏览器的`credentials`设置为true时是否允许浏览器读取response的内容。当用在对preflight预检测请求的响应中时，它指定了实际的请求是否可以使用`credentials`。请注意：简单 GET 请求不会被预检；如果对此类请求的响应中不包含该字段，这个响应将被忽略掉，并且浏览器也不会将相应内容返回给网页。
 
@@ -457,7 +457,7 @@ Access-Control-Allow-Credentials: true
 
 上文已经讨论了[附带身份凭证的请求](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS#Requests_with_credentials)。
 
-###### 5.5 Access-Control-Allow-Methods
+#### Access-Control-Allow-Methods
 
 [`Access-Control-Allow-Methods`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) 首部字段用于预检请求的响应。其指明了实际请求所允许使用的 HTTP 方法。
 
@@ -467,7 +467,7 @@ Access-Control-Allow-Methods: <method>[, <method>]*
 
 相关示例见[这里](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS$edit#Preflighted_requests)。
 
-###### 5.6 Access-Control-Allow-Headers
+#### Access-Control-Allow-Headers
 
 [`Access-Control-Allow-Headers`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) 首部字段用于预检请求的响应。其指明了实际请求中允许携带的首部字段。
 
@@ -475,11 +475,11 @@ Access-Control-Allow-Methods: <method>[, <method>]*
 Access-Control-Allow-Headers: <field-name>[, <field-name>]*
 ```
 
-### 6. HTTP 请求首部字段
+### HTTP 请求首部字段
 
 本节列出了可用于发起跨域请求的首部字段。请注意，这些首部字段无须手动设置。 当开发者使用 XMLHttpRequest 对象发起跨域请求时，它们已经被设置就绪。
 
-###### 6.1 Origin
+#### Origin
 
 [`Origin`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Origin) 首部字段表明预检请求或实际请求的源站。
 
@@ -493,7 +493,7 @@ origin 参数的值为源站 URI。它不包含任何路径信息，只是服务
 
 注意，不管是否为跨域请求，ORIGIN 字段总是被发送。
 
-###### 6.2 Access-Control-Request-Method
+#### Access-Control-Request-Method
 
 [`Access-Control-Request-Method`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Access-Control-Request-Method) 首部字段用于预检请求。其作用是，将实际请求所使用的 HTTP 方法告诉服务器。
 
@@ -503,7 +503,7 @@ Access-Control-Request-Method: <method>
 
 相关示例见[这里](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS#Preflighted_requests)。
 
-###### 6.3 Access-Control-Request-Headers
+####  Access-Control-Request-Headers
 
 [`Access-Control-Request-Headers`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Access-Control-Request-Headers) 首部字段用于预检请求。其作用是，将实际请求所携带的首部字段告诉服务器。
 
