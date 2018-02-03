@@ -3,8 +3,8 @@ title: "react16 系列（1）"
 date: 
 categories: react
 tags: 
-  react
-  react16
+- react
+- react16
 ---
 
 ### 前言
