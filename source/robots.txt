@@ -11,4 +11,3 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 Sitemap: https://winixt.me/sitemap.xml
-Sitemap: https://winixt.me/baidusitemap.xml
