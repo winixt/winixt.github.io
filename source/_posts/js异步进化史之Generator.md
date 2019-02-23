@@ -444,7 +444,7 @@ ajax('http://example.com', function(err, data) {
 
 #### Generator 和 Promise
 
-既然 Promise 能够解决回调的信任的问题，不清楚建议先看看[js 异步进化史之Promise](https://winixt.me/js%E5%BC%82%E6%AD%A5%E8%BF%9B%E5%8C%96%E5%8F%B2%E4%B9%8BPromise/)，我们将 Generator 与 Promise 结合起来看看
+既然 Promise 能够解决回调的信任的问题，不清楚建议先看看[js 异步进化史之Promise](/js%E5%BC%82%E6%AD%A5%E8%BF%9B%E5%8C%96%E5%8F%B2%E4%B9%8BPromise/)，我们将 Generator 与 Promise 结合起来看看
 
 ```javascript
 function request(url) {

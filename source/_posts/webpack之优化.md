@@ -7,7 +7,7 @@ tags:
 - 优化
 ---
 
-在上篇 [webpack 之基础配置](https://winixt.me/webpack%E4%B9%8B%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/)讲解了 webpack 的一些基本用法，本篇我们来详细分析下 webpack 性能相关优化。
+在上篇 [webpack 之基础配置](https://winixt.github.io/webpack%E4%B9%8B%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/)讲解了 webpack 的一些基本用法，本篇我们来详细分析下 webpack 性能相关优化。
 
 <!-- more -->
 
