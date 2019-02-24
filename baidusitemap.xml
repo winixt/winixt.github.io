@@ -47,6 +47,28 @@
     
     
   <url>
+    <loc>https://winixt.github.io/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3z-index/</loc>
+    <lastmod>2019-02-24T04:20:08.115Z</lastmod>
+    <data>
+        <display>
+        <title>深入理解z-index</title>
+        <pubTime>2019-02-24T04:20:08.115Z</pubTime>
+        
+        <tag>css</tag>
+         
+        <tag>z-index</tag>
+         
+         
+           
+             
+              <breadCrumb title="css" url="https://winixt.github.io/categories/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://winixt.github.io/%E7%90%86%E8%A7%A3apply,call,bind/</loc>
     <lastmod>2019-02-24T04:20:08.115Z</lastmod>
     <data>
@@ -64,28 +86,6 @@
            
              
               <breadCrumb title="js" url="https://winixt.github.io/categories/js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://winixt.github.io/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3z-index/</loc>
-    <lastmod>2019-02-24T04:20:08.115Z</lastmod>
-    <data>
-        <display>
-        <title>深入理解z-index</title>
-        <pubTime>2019-02-24T04:20:08.115Z</pubTime>
-        
-        <tag>css</tag>
-         
-        <tag>z-index</tag>
-         
-         
-           
-             
-              <breadCrumb title="css" url="https://winixt.github.io/categories/css/"/>
           
         </display>
     </data>
@@ -219,6 +219,28 @@
 
     
   <url>
+    <loc>https://winixt.github.io/react%20key/</loc>
+    <lastmod>2019-02-24T04:20:08.113Z</lastmod>
+    <data>
+        <display>
+        <title>react key</title>
+        <pubTime>2019-02-24T04:20:08.113Z</pubTime>
+        
+        <tag>react</tag>
+         
+        <tag>key</tag>
+         
+         
+           
+             
+              <breadCrumb title="react" url="https://winixt.github.io/categories/react/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://winixt.github.io/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
     <lastmod>2019-02-24T04:20:08.113Z</lastmod>
     <data>
@@ -261,28 +283,6 @@
 
     
   <url>
-    <loc>https://winixt.github.io/react%20key/</loc>
-    <lastmod>2019-02-24T04:20:08.113Z</lastmod>
-    <data>
-        <display>
-        <title>react key</title>
-        <pubTime>2019-02-24T04:20:08.113Z</pubTime>
-        
-        <tag>react</tag>
-         
-        <tag>key</tag>
-         
-         
-           
-             
-              <breadCrumb title="react" url="https://winixt.github.io/categories/react/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://winixt.github.io/js%E5%BC%82%E6%AD%A5%E8%BF%9B%E5%8C%96%E5%8F%B2%E4%B9%8B%E5%9B%9E%E8%B0%83/</loc>
     <lastmod>2019-02-24T04:20:08.113Z</lastmod>
     <data>
@@ -305,14 +305,14 @@
 
     
   <url>
-    <loc>https://winixt.github.io/js%E5%BC%82%E6%AD%A5%E8%BF%9B%E5%8C%96%E5%8F%B2%E4%B9%8BGenerator/</loc>
+    <loc>https://winixt.github.io/js%E5%BC%82%E6%AD%A5%E8%BF%9B%E5%8C%96%E5%8F%B2%E4%B9%8BPromise/</loc>
     <lastmod>2019-02-24T04:20:08.112Z</lastmod>
     <data>
         <display>
-        <title>js 异步进化史之Generator</title>
+        <title>js 异步进化史之Promise</title>
         <pubTime>2019-02-24T04:20:08.112Z</pubTime>
         
-        <tag>Generator</tag>
+        <tag>Promise</tag>
          
          
            
@@ -325,14 +325,14 @@
 
     
   <url>
-    <loc>https://winixt.github.io/js%E5%BC%82%E6%AD%A5%E8%BF%9B%E5%8C%96%E5%8F%B2%E4%B9%8BPromise/</loc>
+    <loc>https://winixt.github.io/js%E5%BC%82%E6%AD%A5%E8%BF%9B%E5%8C%96%E5%8F%B2%E4%B9%8BGenerator/</loc>
     <lastmod>2019-02-24T04:20:08.112Z</lastmod>
     <data>
         <display>
-        <title>js 异步进化史之Promise</title>
+        <title>js 异步进化史之Generator</title>
         <pubTime>2019-02-24T04:20:08.112Z</pubTime>
         
-        <tag>Promise</tag>
+        <tag>Generator</tag>
          
          
            
