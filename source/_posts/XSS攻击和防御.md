@@ -18,7 +18,7 @@ xss 全称(Cross Site Scripting)跨站脚本攻击，为了不和层叠样式表
 * 导航到恶意网站：点击某个连接，进去的却是另外一个恶俗网站。
 * 记录用户行为：攻击者可以通过使用 addEventListener 方法注册监听键盘事件的回调函数，并把所有用户行为发送到服务器，这些敲击行为可能记录者用户的敏感信息，比如密码和信用卡信息。
 * 插入广告：是否有过这样的经历，当你通过某个连接进入某个网站的时候发现一顿不堪入目的广告（前提的是你没开广告拦截器）
-* 钓鱼网站：这个词是否经常在某某新闻 APP 上看到？攻击者修改 DOM 插入假的登录框，活着把表单的action 属性指向他自己的服务器，然后欺骗用户提交用户的铭感信息。
+* 钓鱼网站：这个词是否经常在某某新闻 APP 上看到？攻击者修改 DOM 插入假的登录框，或者把表单的action 属性指向他自己的服务器，然后欺骗用户提交用户的铭感信息。
 
 ### XSS 攻击方式
 
@@ -31,7 +31,7 @@ XSS 共分为三种攻击方式，从易用上，存储型 XSS > DOM 型 XSS > �
 我们从简单的开始，存储型 XSS 就是存入了数据库，在取出来，导致 XSS。比较典型的地方是：消息论坛，评论区，留言板 XSS。攻击者构造好攻击代码，提交到评论区，当其他用户进入这个页面的时候，浏览器从服务器拉取数据，并做正常的 html 和 js 解析执行，进而触发 XSS 攻击。
 
 ```
-户访问页面 > 浏览器获取html|js（包括攻击代码）解析执行 > 完成攻击
+户访问页面 > 浏览器获取 html | js（包括攻击代码）解析执行 > 完成攻击
 ```
 
 那么攻击者是如何发现 XSS 漏洞，有是如何构造攻击代码提交到评论区的呢？这是一个比较大问题，这里分析个简单的demo，要看整个攻击的分析过程请转 [刘志龙大神-从零开始学 web 安全](http://imweb.io/topic/56b876a65c49f9d377ed8ef6)
@@ -116,7 +116,7 @@ Javascript:eval(String.fromCharCode(97, 108, 101, 114, 116, 40, 49, 41))
 
 ### 入侵方法（摘自[XSS的利用方式----(朽木原创)](http://nvhack.com/forum.php?mod=viewthread&tid=162&extra=page%3D1)
 
-攻击者发现xss漏洞->构造代码->发送给受害人->受害人打开->窃取受害人ccookie->完成攻击.
+攻击者发现xss漏洞->构造代码->发送给受害人->受害人打开->窃取受害人cookie->完成攻击.
 
 **盗取cookie:**可以使用现成的xss平台.
 
@@ -186,7 +186,7 @@ Xiumu.php代码:<?php echo $_POST[‘a’]?><?php echo $_POST[‘b’]?>
 
 (3)**Xss跨框架钓鱼**
 
-这种方式是通过<iframe>嵌入远程域的一个页面实施钓鱼**,**http://www.test.com/a.php?id=””><iframe src=”[http://www.xiumu.com](http://www.xiumu.com/)” height=”100%” width=”100%”></iframe>通过将www.xiumu.com的页面做的和test的页面相同(可利用iframe实现)，但受害者看到的不是真正的test页面，而是xiumu页面.
+这种方式是通过<iframe>嵌入远程域的一个页面实施钓鱼**,**http://www.test.com/a.php?id=””><iframe src=”[http://www.xiumu.com](http://www.xiumu.com/)” height=”100%” width=”100%”></iframe>将www.xiumu.com的页面做的和test的页面相同(可利用iframe实现)，但受害者看到的不是真正的test页面，而是xiumu页面.
 
 （4）xss.tv 是个好网站
 

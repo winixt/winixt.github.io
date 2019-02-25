@@ -1,6 +1,6 @@
 ---
 title: "webpack4 H5活动页构建"
-date: 
+date: 2018-08-29
 categories: webpack
 tags: 
 - webpack
