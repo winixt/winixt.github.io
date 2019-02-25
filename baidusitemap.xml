@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://winixt.github.io/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6%E5%8F%8A%E5%85%B6%E8%A7%A3%E6%9E%90%E8%BF%90%E8%A1%8C%E9%A1%BA%E5%BA%8F/</loc>
+    <lastmod>2019-02-25T04:09:07.524Z</lastmod>
+    <data>
+        <display>
+        <title>浏览器加载文件及其解析顺序</title>
+        <pubTime>2019-02-24T04:20:08.114Z</pubTime>
+        
+        <tag>文件加载顺序</tag>
+         
+         
+           
+             
+              <breadCrumb title="文件加载顺序" url="https://winixt.github.io/categories/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E9%A1%BA%E5%BA%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://winixt.github.io/webpack4%E6%B4%BB%E5%8A%A8%E6%9E%84%E5%BB%BA/</loc>
     <lastmod>2019-02-24T12:04:24.413Z</lastmod>
     <data>
@@ -47,28 +67,6 @@
     
     
   <url>
-    <loc>https://winixt.github.io/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3z-index/</loc>
-    <lastmod>2019-02-24T04:20:08.115Z</lastmod>
-    <data>
-        <display>
-        <title>深入理解z-index</title>
-        <pubTime>2019-02-24T04:20:08.115Z</pubTime>
-        
-        <tag>css</tag>
-         
-        <tag>z-index</tag>
-         
-         
-           
-             
-              <breadCrumb title="css" url="https://winixt.github.io/categories/css/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://winixt.github.io/%E7%90%86%E8%A7%A3apply,call,bind/</loc>
     <lastmod>2019-02-24T04:20:08.115Z</lastmod>
     <data>
@@ -86,6 +84,28 @@
            
              
               <breadCrumb title="js" url="https://winixt.github.io/categories/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://winixt.github.io/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3z-index/</loc>
+    <lastmod>2019-02-24T04:20:08.115Z</lastmod>
+    <data>
+        <display>
+        <title>深入理解z-index</title>
+        <pubTime>2019-02-24T04:20:08.115Z</pubTime>
+        
+        <tag>css</tag>
+         
+        <tag>z-index</tag>
+         
+         
+           
+             
+              <breadCrumb title="css" url="https://winixt.github.io/categories/css/"/>
           
         </display>
     </data>
@@ -137,26 +157,6 @@
 
     
   <url>
-    <loc>https://winixt.github.io/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6%E5%8F%8A%E5%85%B6%E8%A7%A3%E6%9E%90%E8%BF%90%E8%A1%8C%E9%A1%BA%E5%BA%8F/</loc>
-    <lastmod>2019-02-24T04:20:08.114Z</lastmod>
-    <data>
-        <display>
-        <title>浏览器加载文件及其解析顺序</title>
-        <pubTime>2019-02-24T04:20:08.114Z</pubTime>
-        
-        <tag>文件加载顺序</tag>
-         
-         
-           
-             
-              <breadCrumb title="文件加载顺序" url="https://winixt.github.io/categories/%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E9%A1%BA%E5%BA%8F/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://winixt.github.io/webpack%E4%B9%8B%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2019-02-24T04:20:08.114Z</lastmod>
     <data>
@@ -192,6 +192,28 @@
            
              
               <breadCrumb title="webpack" url="https://winixt.github.io/categories/webpack/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://winixt.github.io/react%20key/</loc>
+    <lastmod>2019-02-24T04:20:08.113Z</lastmod>
+    <data>
+        <display>
+        <title>react key</title>
+        <pubTime>2019-02-24T04:20:08.113Z</pubTime>
+        
+        <tag>react</tag>
+         
+        <tag>key</tag>
+         
+         
+           
+             
+              <breadCrumb title="react" url="https://winixt.github.io/categories/react/"/>
           
         </display>
     </data>
@@ -261,28 +283,6 @@
 
     
   <url>
-    <loc>https://winixt.github.io/react%20key/</loc>
-    <lastmod>2019-02-24T04:20:08.113Z</lastmod>
-    <data>
-        <display>
-        <title>react key</title>
-        <pubTime>2019-02-24T04:20:08.113Z</pubTime>
-        
-        <tag>react</tag>
-         
-        <tag>key</tag>
-         
-         
-           
-             
-              <breadCrumb title="react" url="https://winixt.github.io/categories/react/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://winixt.github.io/js%E5%BC%82%E6%AD%A5%E8%BF%9B%E5%8C%96%E5%8F%B2%E4%B9%8B%E5%9B%9E%E8%B0%83/</loc>
     <lastmod>2019-02-24T04:20:08.113Z</lastmod>
     <data>
@@ -293,26 +293,6 @@
         <tag>回调</tag>
          
         <tag>事件循环</tag>
-         
-         
-           
-             
-              <breadCrumb title="异步" url="https://winixt.github.io/categories/%E5%BC%82%E6%AD%A5/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://winixt.github.io/js%E5%BC%82%E6%AD%A5%E8%BF%9B%E5%8C%96%E5%8F%B2%E4%B9%8BPromise/</loc>
-    <lastmod>2019-02-24T04:20:08.112Z</lastmod>
-    <data>
-        <display>
-        <title>js 异步进化史之Promise</title>
-        <pubTime>2019-02-24T04:20:08.112Z</pubTime>
-        
-        <tag>Promise</tag>
          
          
            
@@ -345,6 +325,26 @@
 
     
   <url>
+    <loc>https://winixt.github.io/js%E5%BC%82%E6%AD%A5%E8%BF%9B%E5%8C%96%E5%8F%B2%E4%B9%8BPromise/</loc>
+    <lastmod>2019-02-24T04:20:08.112Z</lastmod>
+    <data>
+        <display>
+        <title>js 异步进化史之Promise</title>
+        <pubTime>2019-02-24T04:20:08.112Z</pubTime>
+        
+        <tag>Promise</tag>
+         
+         
+           
+             
+              <breadCrumb title="异步" url="https://winixt.github.io/categories/%E5%BC%82%E6%AD%A5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://winixt.github.io/https/</loc>
     <lastmod>2019-02-24T04:20:08.112Z</lastmod>
     <data>
@@ -358,6 +358,26 @@
            
              
               <breadCrumb title="https" url="https://winixt.github.io/categories/https/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://winixt.github.io/appcache/</loc>
+    <lastmod>2019-02-24T04:20:08.111Z</lastmod>
+    <data>
+        <display>
+        <title>appcache</title>
+        <pubTime>2019-02-24T04:20:08.111Z</pubTime>
+        
+        <tag>appcache</tag>
+         
+         
+           
+             
+              <breadCrumb title="离线缓存" url="https://winixt.github.io/categories/%E7%A6%BB%E7%BA%BF%E7%BC%93%E5%AD%98/"/>
           
         </display>
     </data>
@@ -380,26 +400,6 @@
            
              
               <breadCrumb title="css" url="https://winixt.github.io/categories/css/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://winixt.github.io/appcache/</loc>
-    <lastmod>2019-02-24T04:20:08.111Z</lastmod>
-    <data>
-        <display>
-        <title>appcache</title>
-        <pubTime>2019-02-24T04:20:08.111Z</pubTime>
-        
-        <tag>appcache</tag>
-         
-         
-           
-             
-              <breadCrumb title="离线缓存" url="https://winixt.github.io/categories/%E7%A6%BB%E7%BA%BF%E7%BC%93%E5%AD%98/"/>
           
         </display>
     </data>
