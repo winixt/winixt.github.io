@@ -42,7 +42,7 @@ HTTP 超文本传输协议(Hypertext Transper Protocol)，应用层协议。基�
 
 ### HTTP Headers
 
-HTTP 规范也定义了一系列 Headers 信息，但是大部分不需要我们开发人员关心，浏览器已经帮我们实现号了。我们来看看几个比较重要的 Headers 信息。
+HTTP 规范也定义了一系列 Headers 信息，但是大部分不需要我们开发人员关心，浏览器已经帮我们实现好了。我们来看看几个比较重要的 Headers 信息。
 
 #### Content-Type
 
@@ -87,6 +87,14 @@ Cookie 主要用于以下三个方面：
 * 个性化设置（如用户自定义设置、主题等）
 * 浏览器行为跟踪（如分析用户行为等）
 
+cookie 安全相关各个属性
+| 属性                           |  结果  |
+| :----------------------------- | :--:  |
+| value  |  如果保存用户登录态，应该将该值加密，不能使用明文的用户标识  |
+| http-only |  不能通过 js 访问 cookie，减少 XSS 攻击|
+| secure |  只能在协议为 https 的请求中携带  |
+| same-site  |  制定浏览器不能再跨域的请求中携带 cookie, 减少 CSRF 攻击  |
+
 #### 跨资源请求相关 Header
 
 Access-Control-Allow-Origin 等信息，具体看下文[跨资源共享模块]
@@ -128,11 +136,11 @@ Access-Control-Allow-Origin 等信息，具体看下文[跨资源共享模块]
 
 为了防止 CSRF 跨站攻击，浏览器对跨域请求做了限制，即跨资源共享（CORS）机制，具体如下：
 
-0. 简单请求（不会引起其他副作用的请求），直接发起请求，如果服务器拒绝跨域，浏览器会对请求结果进行拦截，否则通过请求。
+1. 简单请求（不会引起其他副作用的请求），直接发起请求，如果服务器拒绝跨域，浏览器会对请求结果进行拦截，否则通过请求。
 
 
-1. 对于可能对服务器产生副作用的 HTTP 请求方法，浏览器必须首先使用 OPTIONS 方法发起一个预测请求，从而获知服务端是否允许跨域请求，服务器确认允许之后，才发起实际的HTTP 请求。在预测请求的返回中，服务端也可以通知客户端，是否需要携带身份凭证。
-2. 有些浏览器不允许从 HTTPS 的域跨域访问 HTTP，比如 Chrome 和 Firefox，这些请求还为发起就被拦截。
+2. 对于可能对服务器产生副作用的 HTTP 请求方法，浏览器必须首先使用 OPTIONS 方法发起一个预测请求，从而获知服务端是否允许跨域请求，服务器确认允许之后，才发起实际的HTTP 请求。在预测请求的返回中，服务端也可以通知客户端，是否需要携带身份凭证。
+3. 有些浏览器不允许从 HTTPS 的域跨域访问 HTTP，比如 Chrome 和 Firefox，这些请求还为发起就被拦截。
 
 #### 一个源的定义
 
@@ -146,7 +154,7 @@ Access-Control-Allow-Origin 等信息，具体看下文[跨资源共享模块]
 | https://www.example.com/test1  |  失败  | 协议不同 |
 | http://www.example.com:81/test |  失败  | 端口不同 |
 | http://news.example.com/test   |  失败  | 不同域名 |
-|                                |      |      |
+
 
  **IE例外** 
 
@@ -242,18 +250,17 @@ Content-Type: application/xml
 如下是一个需要执行预检请求的 HTTP 请求：
 
 ```javascript
-var invocation = new XMLHttpRequest();
-var url = 'http://bar.other/resources/post-here/';
-var body = '<?xml version="1.0"?><person><name>Arun</name></person>';
+let invocation = new XMLHttpRequest();
+let url = 'http://bar.other/resources/post-here/';
+let body = '<?xml version="1.0"?><person><name>Arun</name></person>';
     
-function callOtherDomain(){
-  if(invocation)
-    {
-      invocation.open('POST', url, true);
-      invocation.setRequestHeader('X-PINGOTHER', 'pingpong');
-      invocation.setRequestHeader('Content-Type', 'application/xml');
-      invocation.onreadystatechange = handler;
-      invocation.send(body); 
+function callOtherDomain() {
+    if (invocation) {
+        invocation.open('POST', url, true);
+        invocation.setRequestHeader('X-PINGOTHER', 'pingpong');
+        invocation.setRequestHeader('Content-Type', 'application/xml');
+        invocation.onreadystatechange = handler;
+        invocation.send(body); 
     }
 }
 ```
@@ -358,17 +365,17 @@ Fetch 与 CORS 的一个有趣的特性是，可以基于 HTTP cookies 和 HTTP 
 
 如下，http://foo.example 的某脚本 向 http://bar.other 发起一个 GET 请求，并设置 Cookie:
 
-```
-var invocation = new XMLHttpRequest();
-var url = 'http://bar.other/resources/credentialed-content/';
+```javascript
+let invocation = new XMLHttpRequest();
+let url = 'http://bar.other/resources/credentialed-content/';
     
-function callOtherDomain(){
-  if(invocation) {
-    invocation.open('GET', url, true);
-    invocation.withCredentials = true;
-    invocation.onreadystatechange = handler;
-    invocation.send(); 
-  }
+function callOtherDomain() {
+    if (invocation) {
+        invocation.open('GET', url, true);
+        invocation.withCredentials = true;
+        invocation.onreadystatechange = handler;
+        invocation.send(); 
+    }
 }
 ```
 
@@ -376,17 +383,17 @@ function callOtherDomain(){
 
 Fetch 的特殊标志如下：credentials: 'include'
 
-```
+```javascript
 let requestConfig = {
     credentials: 'include',
     method: type,
     headers: {
-      'Accept': 'application/json',
-      'Content-Type' : 'application/json'
+        'Accept': 'application/json',
+        'Content-Type' : 'application/json'
     },
     mode: "cors",
     cache: "force-cache"
-  }
+}
 ```
 
 

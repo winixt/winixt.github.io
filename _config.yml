@@ -71,7 +71,7 @@ pagination_dir: page
 
 # Extensions
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: lite
 
 search:
   path: search.xml
