@@ -548,4 +548,8 @@ let invokeGuardedCallbackImpl = function<A, B, C, D, E, F, Context>(
 
 完毕！
 
+### 参考美女黄琼大神，建议阅读
+[揭秘React形成合成事件的过程](https://segmentfault.com/a/1190000013363525)
+[一看就晕的React事件机制](https://segmentfault.com/a/1190000013364457)
+
 ### 感谢阅读
