@@ -1,6 +1,6 @@
 ---
 title: "react16 系列（1）"
-date: 
+date: 2018-05-30
 categories: react
 tags: 
 - react
@@ -223,7 +223,7 @@ setState react 官方描述如下：
 >
 > `react-dom`包的大小从141kb下降到103.7kb（gzip压缩后大小从42.9kb下降到103.7kb）。
 >
-> `react`+`react-dom`包总大小从161.7kb下降到109kb（gzip压缩后大小从49.8kb下降到34.8kb）。
+> `react`+`react-dom`包总大小从161.7kb下降到109kb（gzip压缩后大小从49.8kb下降到34.8kb）
 
 
 

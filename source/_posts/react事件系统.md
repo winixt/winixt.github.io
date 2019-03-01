@@ -13,7 +13,9 @@ tags:
 * react 事件系统分为`事件注册`和`事件分发`两个阶段。
 * 事件注册阶段将**大部分**事件绑定到 document，在事件分发阶段调用 `dispatchEvent`进行事件捕获、事件冒泡分发。
 * 事件分发阶段会先根据事件类型调用对应 EventPlugin 进行事件合成，捕获和冒泡阶段会执行的 listener 都会存储到 event._dispatchListeners
-  
+
+<!-- more -->
+
 ## 前置知识
 
 ```js
