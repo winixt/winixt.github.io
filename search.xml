@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[实现一个share state hook]]></title>
     <url>%2F%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAshare%20state%20hook%2F</url>
-    <content type="text"><![CDATA[现状react hooks 目前主要作用在于通过 useState 等函数实现状态逻辑共享，而不是状态状态共享。state 共享依旧需要 redux 等库去实现。redux 对于大型应用确实是一个不错的选择。但是写 action、reducers 难受呀？同意的请往下看，不同意的请摁 ⌘ + w。 action | reducers 的重新思考那么花费那么大功夫写 action、reducers 的目的是什么呢？它能带来那些好处呢？我认为有如下几点。 复用数据更改逻辑 使数据透明化，便于追踪 bug，以及后期维护 方便做独立测试 可以扩展去表达复杂的更新逻辑 看起来很不错，那如果要达到这些目的，是不是没有其他更优雅的方案了呢？ 一种更优雅的实现 state 共享的方式受到 react hooks、rematch 和 reactN 的启发。我实现一种 hooks 函数，该函数可以实现 state 的共享。 创建一个同步 state hook可以通过传入一个包含 state reducers effects(可选) 三个属性的对象，生成一个可以在多个组件间共享 state 的 hook。Github 123456789101112131415161718192021222324252627282930// useCount.jsimport createShareStateHook from './createShareStateHook';const count = &#123; // 需要在多个组件间贡献的 state state: &#123; count: 0, name: '罗宾' &#125;, // reducers 同步数据变更 reducers: &#123; increment: (state, payload) =&gt; Object.assign(&#123;&#125;, state, &#123;count: state.count + payload&#125;), decrement: (state, payload) =&gt; Object.assign(&#123;&#125;, state, &#123;count: state.count - payload&#125;), changeName: (state, payload) =&gt; Object.assign(&#123;&#125;, state, &#123;name: payload&#125;), &#125;, // 异步数据变更 effects: &#123; getDataAsync() &#123; fetch('/get').then((res) =&gt; &#123; return res.json(); &#125;).then((data) =&gt; &#123; this.changeName(data.name); &#125;).catch(err =&gt; &#123; reject(err); &#125;) &#125; &#125;&#125;;// 创建同步 state 的 hooksexport default createShareStateHook(count) 使用同步 state hook直接调用上一步生成 hook 的函数。123456789101112131415161718192021222324import useCounter from './useCounter';const Controls = () =&gt; &#123; const [data, dispatch, effects] = useCounter(); return ( &lt;&gt; &lt;div&gt;当前 count: &#123;data.count&#125; &lt;/div&gt; &lt;button onClick=&#123;() =&gt; dispatch.increment(1)&#125;&gt;加一&lt;/button&gt; &lt;button onClick=&#123;() =&gt; dispatch.decrement(1)&#125;&gt;减一&lt;/button&gt; &lt;button onClick=&#123;() =&gt; effects.getDataAsync()&#125;&gt;获取异步数据&lt;/button&gt; &lt;/&gt; );&#125;const Message = () =&gt; &#123; const [data] = useCounter(); const &#123;count, name&#125; = data; return ( &lt;div&gt; &lt;div&gt;count: &#123;count&#125;&lt;/div&gt; &lt;div&gt;name: &#123;name&#125;&lt;/div&gt; &lt;/div&gt; )&#125;]]></content>
+    <content type="text"><![CDATA[现状 react hooks 目前主要作用在于通过 useState 等函数实现状态逻辑共享，而不是状态共享。state 共享依旧需要 redux 等库去实现。redux 对于大型应用确实是一个不错的选择。但是写 action、reducers 难受呀？同意的请往下看，不同意的请摁 ⌘ + w。 重新思考 action | reducers那么花费那么大功夫写 action、reducers 的目的是什么呢？它能带来那些好处呢？我认为有如下几点。 复用数据更改逻辑 使数据透明化，便于追踪 bug，以及后期维护 方便做独立测试 可以扩展去表达复杂的更新逻辑 看起来很不错，那如果要达到这些目的，是不是没有其他更优雅的方案了呢？ 一种更优雅的实现 state 共享的方式 受到 react hooks、rematch 和 reactN 的启发。我实现一种 hooks 函数，该函数可以实现 state 的共享。 创建一个同步 state hook可以通过传入一个包含 state reducers effects(可选) 三个属性的对象，生成一个可以在多个组件间共享 state 的 hook。Github 123456789101112131415161718192021222324252627282930// useCount.jsimport createShareStateHook from './createShareStateHook';const count = &#123; // 需要在多个组件间贡献的 state state: &#123; count: 0, name: '罗宾' &#125;, // reducers 同步数据变更 reducers: &#123; increment: (state, payload) =&gt; Object.assign(&#123;&#125;, state, &#123;count: state.count + payload&#125;), decrement: (state, payload) =&gt; Object.assign(&#123;&#125;, state, &#123;count: state.count - payload&#125;), changeName: (state, payload) =&gt; Object.assign(&#123;&#125;, state, &#123;name: payload&#125;), &#125;, // 异步数据变更 effects: &#123; getDataAsync() &#123; fetch('/get').then((res) =&gt; &#123; return res.json(); &#125;).then((data) =&gt; &#123; this.changeName(data.name); &#125;).catch(err =&gt; &#123; reject(err); &#125;) &#125; &#125;&#125;;// 创建同步 state 的 hooksexport default createShareStateHook(count) 使用同步 state hook直接调用上一步生成 hook 的函数。123456789101112131415161718192021222324import useCounter from './useCounter';const Controls = () =&gt; &#123; const [data, dispatch, effects] = useCounter(); return ( &lt;&gt; &lt;div&gt;当前 count: &#123;data.count&#125; &lt;/div&gt; &lt;button onClick=&#123;() =&gt; dispatch.increment(1)&#125;&gt;加一&lt;/button&gt; &lt;button onClick=&#123;() =&gt; dispatch.decrement(1)&#125;&gt;减一&lt;/button&gt; &lt;button onClick=&#123;() =&gt; effects.getDataAsync()&#125;&gt;获取异步数据&lt;/button&gt; &lt;/&gt; );&#125;const Message = () =&gt; &#123; const [data] = useCounter(); const &#123;count, name&#125; = data; return ( &lt;div&gt; &lt;div&gt;count: &#123;count&#125;&lt;/div&gt; &lt;div&gt;name: &#123;name&#125;&lt;/div&gt; &lt;/div&gt; )&#125;]]></content>
       <categories>
         <category>react</category>
       </categories>
@@ -54,8 +54,8 @@
         <category>css</category>
       </categories>
       <tags>
-        <tag>z-index</tag>
         <tag>css</tag>
+        <tag>z-index</tag>
       </tags>
   </entry>
   <entry>
@@ -115,18 +115,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[react key]]></title>
-    <url>%2Freact%20key%2F</url>
-    <content type="text"><![CDATA[react 核心开发人员说之后可能不再需要 key，趁它还在赶紧去了解一泼，逃～～～ 本文思路： 为什么要使用 key 使用 key 的正确方式 为什么要使用 key？ 简单来说，这和 react 的 diff 算法有关，用于提高 react 处理列表的性能。 为什么使用了 key 就可以提高处理列表的性能呢？ 例如，我们需要在当前列表末尾插入一个新的元素： 123456789101112&lt;!-- 原始列表 --&gt;&lt;ul&gt; &lt;li&gt;冬笑非&lt;/li&gt; &lt;li&gt;南宫燕&lt;/li&gt;&lt;/ul&gt;&lt;!-- 更新后列表 --&gt;&lt;ul&gt; &lt;li&gt;冬笑非&lt;/li&gt; &lt;li&gt;南宫燕&lt;/li&gt; &lt;li&gt;雪鸢心&lt;/li&gt;&lt;/ul&gt; 在新旧 dom 树 diff 过程中，发现前两个列表子节点（ &lt;li&gt;冬笑非&lt;/li&gt; 和 &lt;li&gt;南宫燕&lt;/li&gt; ）相同，如是直接插入 &lt;li&gt;雪鸢心&lt;/li&gt; 这个节点完事 但是（重点都在”但是”后），如果我在列表前面插入一个元素会发生什么呢？ 123456789101112&lt;!-- 原始列表 --&gt;&lt;ul&gt; &lt;li&gt;冬笑非&lt;/li&gt; &lt;li&gt;南宫燕&lt;/li&gt;&lt;/ul&gt;&lt;!-- 更新后列表 --&gt;&lt;ul&gt; &lt;li&gt;雪鸢心&lt;/li&gt; &lt;li&gt;冬笑非&lt;/li&gt; &lt;li&gt;南宫燕&lt;/li&gt;&lt;/ul&gt; react 将会改变每一个节点，而不是保留 &lt;li&gt;冬笑非&lt;/li&gt; 和 &lt;li&gt;南宫燕&lt;/li&gt; 这两个节点。这种处理方式会导致一定的性能问题。（你可能会觉得一个 li 能造成什么性能影响呢？想想在实际情况下，这可能是一个商品列表页，然后你会懂的） 为了解决上述问题，react 提供了一个称为 key 的属性。 123456789101112&lt;!-- 原始列表 --&gt;&lt;ul&gt; &lt;li key="doxiu"&gt;冬笑非&lt;/li&gt; &lt;li key="niye"&gt;南宫燕&lt;/li&gt;&lt;/ul&gt;&lt;!-- 更新后列表 --&gt;&lt;ul&gt; &lt;li key="xueyx"&gt;雪鸢心&lt;/li&gt; &lt;li key="doxiu"&gt;冬笑非&lt;/li&gt; &lt;li key="niye"&gt;南宫燕&lt;/li&gt;&lt;/ul&gt; 这样 react 会发现 key 为 doxiu、niye 的节点并没有改变，只需移动一下位置，再新增一个 key=”xueyx” 的节点。 react 使用 key 识别列表子节点，进而对节点进行增删改操作。如果 key 变更，react 会认为是一个新节点。 使用 key 的正确方式 既然 key 用于标识列表中的一个节点，自然 key 应该在当前列表唯一（不需要全局唯一），并且保持稳定。 如果同一个列表子节点的 key 不断的变更，react 会认为它总是一个新节点。 所以使用 key 的时候： 如果数据本身带有 id 尽量使用 id 作为 key 如果数据本身不带 id ，并且需要经常更新列表，需要为每个子节点构造一个唯一 key，使用 hash 方法等 如果数据本身不带 id，并且数据不怎么更新，使用数据 index 也没什么问题 这种方式相当于人工优化算法，有点变扭～～ 不过前文也说了，之后可能不用再写 key 了【期待脸】]]></content>
-      <categories>
-        <category>react</category>
-      </categories>
-      <tags>
-        <tag>react</tag>
-        <tag>key</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[用一个四元数代替两个3D向量的旋转]]></title>
     <url>%2Fthree.js%E4%B9%8B%E7%94%A8%E4%B8%80%E4%B8%AA%E5%9B%9B%E5%85%83%E6%95%B0%E4%BB%A3%E6%9B%BF%E4%B8%A4%E4%B8%AA3D%E5%90%91%E9%87%8F%E7%9A%84%E6%97%8B%E8%BD%AC%2F</url>
     <content type="text"><![CDATA[翻译自：http://lolengine.net/blog/2013/09/18/beautiful-maths-quaternion-from-vectors 一个旋转最好的表示方法就是使用一个旋转轴和一个旋转角。旋转轴可以通过两个向量的叉乘得出。 旋转角（最小）可以通过两个向量的点积获得。点积获取的刚好是最小的旋转角。如下两种方法： 有了角度和旋转轴我们便可以用代码生成四元数 接下来让我们看看通过旋转轴和旋转角构造四元数的公式： 看代码： 减少三角函数的使用： 通过下面三角函数的公式，减少代码中三角函数的使用，简化代码， 直接看代码： 减少平方根的使用： 上述代码中用到 3次nomalize, 每个normalize 里面又有一个Math.sqrt; 计算法向量 （w) 的模，可以使用下面的公式， sin(θ)的值可以使用 那么代码即可简化为： ‘ 我们可以清楚的发现创建单位法向量(w)时除了一个 half_sin,构造四元数对象(quat) 又乘了half_sin,因此 half_sin是重复而多余的，简化代码如下： 在THREE.js 中进行改进 用些引擎normalize 的速度是很快的，如是我们可以进一步该进代码： 通过观察代码我们容易发现，构建四元素对象时，用的是half_cos 的平方，故开平方的代码可以省去： 我们可以让四元素乘上 norm_u_norm_v 进一步简化代码 如果强迫 使用单位向量（three.js 确实是这样做的） 代码还可以简化为 注意：两个向量可能不在同一个平面内，还要进行判断 所有代码如下： 如有不对，欢迎抛砖]]></content>
@@ -136,6 +124,18 @@
       <tags>
         <tag>webgl</tag>
         <tag>3D</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[react key]]></title>
+    <url>%2Freact%20key%2F</url>
+    <content type="text"><![CDATA[react 核心开发人员说之后可能不再需要 key，趁它还在赶紧去了解一泼，逃～～～ 本文思路： 为什么要使用 key 使用 key 的正确方式 为什么要使用 key？ 简单来说，这和 react 的 diff 算法有关，用于提高 react 处理列表的性能。 为什么使用了 key 就可以提高处理列表的性能呢？ 例如，我们需要在当前列表末尾插入一个新的元素： 123456789101112&lt;!-- 原始列表 --&gt;&lt;ul&gt; &lt;li&gt;冬笑非&lt;/li&gt; &lt;li&gt;南宫燕&lt;/li&gt;&lt;/ul&gt;&lt;!-- 更新后列表 --&gt;&lt;ul&gt; &lt;li&gt;冬笑非&lt;/li&gt; &lt;li&gt;南宫燕&lt;/li&gt; &lt;li&gt;雪鸢心&lt;/li&gt;&lt;/ul&gt; 在新旧 dom 树 diff 过程中，发现前两个列表子节点（ &lt;li&gt;冬笑非&lt;/li&gt; 和 &lt;li&gt;南宫燕&lt;/li&gt; ）相同，如是直接插入 &lt;li&gt;雪鸢心&lt;/li&gt; 这个节点完事 但是（重点都在”但是”后），如果我在列表前面插入一个元素会发生什么呢？ 123456789101112&lt;!-- 原始列表 --&gt;&lt;ul&gt; &lt;li&gt;冬笑非&lt;/li&gt; &lt;li&gt;南宫燕&lt;/li&gt;&lt;/ul&gt;&lt;!-- 更新后列表 --&gt;&lt;ul&gt; &lt;li&gt;雪鸢心&lt;/li&gt; &lt;li&gt;冬笑非&lt;/li&gt; &lt;li&gt;南宫燕&lt;/li&gt;&lt;/ul&gt; react 将会改变每一个节点，而不是保留 &lt;li&gt;冬笑非&lt;/li&gt; 和 &lt;li&gt;南宫燕&lt;/li&gt; 这两个节点。这种处理方式会导致一定的性能问题。（你可能会觉得一个 li 能造成什么性能影响呢？想想在实际情况下，这可能是一个商品列表页，然后你会懂的） 为了解决上述问题，react 提供了一个称为 key 的属性。 123456789101112&lt;!-- 原始列表 --&gt;&lt;ul&gt; &lt;li key="doxiu"&gt;冬笑非&lt;/li&gt; &lt;li key="niye"&gt;南宫燕&lt;/li&gt;&lt;/ul&gt;&lt;!-- 更新后列表 --&gt;&lt;ul&gt; &lt;li key="xueyx"&gt;雪鸢心&lt;/li&gt; &lt;li key="doxiu"&gt;冬笑非&lt;/li&gt; &lt;li key="niye"&gt;南宫燕&lt;/li&gt;&lt;/ul&gt; 这样 react 会发现 key 为 doxiu、niye 的节点并没有改变，只需移动一下位置，再新增一个 key=”xueyx” 的节点。 react 使用 key 识别列表子节点，进而对节点进行增删改操作。如果 key 变更，react 会认为是一个新节点。 使用 key 的正确方式 既然 key 用于标识列表中的一个节点，自然 key 应该在当前列表唯一（不需要全局唯一），并且保持稳定。 如果同一个列表子节点的 key 不断的变更，react 会认为它总是一个新节点。 所以使用 key 的时候： 如果数据本身带有 id 尽量使用 id 作为 key 如果数据本身不带 id ，并且需要经常更新列表，需要为每个子节点构造一个唯一 key，使用 hash 方法等 如果数据本身不带 id，并且数据不怎么更新，使用数据 index 也没什么问题 这种方式相当于人工优化算法，有点变扭～～ 不过前文也说了，之后可能不用再写 key 了【期待脸】]]></content>
+      <categories>
+        <category>react</category>
+      </categories>
+      <tags>
+        <tag>react</tag>
+        <tag>key</tag>
       </tags>
   </entry>
   <entry>
@@ -202,8 +202,8 @@
         <category>css</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>box-sizing</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
