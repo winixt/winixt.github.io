@@ -1,6 +1,6 @@
 ---
 title: "理解apply,call,bind"
-date: 
+date: 2019-03-04
 categories: js
 tags: 
 - apply
@@ -10,7 +10,7 @@ tags:
 
 之前对 js 的 apply、call、bind 方法零零散散有过一些了解，知道它们可以改变函数运行时的 this。今天来深入理解一番。
 
-其实很多人心想不久是绑定 this 嘛，有什么的。
+其实很多人心想不就是绑定 this 嘛，有什么的。
 
 好，那么这句代码何解？
 
@@ -115,6 +115,28 @@ Math.max.apply(null, [1, 2, 3]); // 3
 Math.max(...[1, 2, 3]); // 3
 ```
 
+#### 手动实现 apply
+
+```javascript
+if (!Function.prototype.apply) {
+  Function.prototype.apply = function (ctx) {
+    if (typeof this !== 'function') {
+      throw new TypeError('use apply must be a function');
+    }
+    ctx = ctx || window;
+    ctx.fn = this;
+    let result;
+    if (arguments[1]) {
+      if (!Array.isArray(arguments[1])) throw new TypeError('apply second argument must be a array');
+      result = ctx.fn(...arguments);
+    } else {
+      result = ctx.fn();
+    }
+    delete ctx.fn;
+    return result;
+  }
+}
+```
 
 
 ### call
@@ -141,6 +163,23 @@ func.call(obj, 2); //3
 
 ```
 
+#### 手动实现 call
+
+```javascript
+if (!Function.prototype.call) {
+  Function.prototype.call = function (context) {
+    if (typeof this !== 'function') {
+      throw new TypeError('use call must be a function');
+    }
+    context = context | window;
+    context._fn = this;
+    const args = [...arguments].slice(1);
+    let result = context.fn(...args);
+    delete context._fn;
+    return result;
+  }
+}
+```
 
 
 ### bind
@@ -181,6 +220,53 @@ const k = func.bind(null, 1);
 k(2); // 1 ------ 2
 ```
 
+#### 使用 call 实现 bind
+
+```javascript
+if (!Function.prototype.bind) {
+  Function.prototype.bind = function (context) {
+    if (typeof this !== 'function') {
+      throw new TypeError('use bind must be a function');
+    }
+    context = context || window;
+    const _this = this;
+    const args = [...arguments].slice(1);
+    return function F() {
+      // 因为返回的一个函数，可以用 new，所以需要判断
+      if (this instanceof F) {
+        return new _this(...args, ...arguments);
+      }
+      return _this.call(context, ...args, ...arguments);
+    }
+  }
+}
+```
+
+#### 多次 bind 只有第一次生效
+
+```javascript
+function fun() {
+  console.log(this.a);
+}
+
+const obj1 = {
+  a: 1
+}
+const obj2 = {
+  a: 2
+}
+
+fun.bind(obj1).bind(obj2)() // 1
+
+// 相当于
+// 第二次绑定，相当于绑定绑定后的结果。第一次 fun 的绑定没有影响
+function boo(o) {
+  return function () {
+    fn.call(o, ...arguments); 
+  }.call(o2, ...arguments);
+}
+
+```
 
 
 ### 进化
