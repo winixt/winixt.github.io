@@ -70,6 +70,11 @@ Github：https://github.com/winixt
 3. 方便做独立测试
 4. 可以扩展去表达复杂的更新逻辑
 
+> 扩展思维
+> 你真的需要知道数据是怎么变更的吗？是否可以实现一个类似 apollo-graphql 的库，你只需要通知什么时候去拉取数据，什么时候去更新数据，其他数据管理都交给数据层处理。
+> 当然，apollo-graphql 也可以很好的实现数据变更的可视化。
+
+
 #### reducer | action 的重新思考
 
 action 负责改 store 以外所有事，而 reducer 负责改 store，偶尔用来做数据处理。

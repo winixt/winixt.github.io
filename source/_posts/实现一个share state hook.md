@@ -1,18 +1,20 @@
 ---
 title: "实现一个share state hook"
-date: 2019-2-28
+date: 2019-03-09
 categories: react
 tags: 
 - hooks
 ---
 
 ## 现状
+-----
 
-react hooks 目前主要作用在于通过 useState 等函数实现**状态逻辑**共享，而不是状态状态共享。state 共享依旧需要 redux 等库去实现。redux 对于大型应用确实是一个不错的选择。但是写 action、reducers 难受呀？同意的请往下看，不同意的请摁 ⌘ + w。
+react hooks 目前主要作用在于通过 useState 等函数实现**状态逻辑**共享，而不是状态共享。state 共享依旧需要 redux 等库去实现。redux 对于大型应用确实是一个不错的选择。但是写 action、reducers 难受呀？同意的请往下看，不同意的请摁 ⌘ + w。
+
 
 <!-- more -->
 
-### action | reducers 的重新思考
+### 重新思考 action | reducers
 
 那么花费那么大功夫写 action、reducers 的目的是什么呢？它能带来那些好处呢？我认为有如下几点。
 1. 复用数据更改逻辑
@@ -23,6 +25,7 @@ react hooks 目前主要作用在于通过 useState 等函数实现**状态逻�
 看起来很不错，那如果要达到这些目的，是不是没有其他更优雅的方案了呢？
 
 ## 一种更优雅的实现 state 共享的方式
+----
 
 受到 react hooks、rematch 和 [reactN](https://github.com/CharlesStover/reactn#readme) 的启发。我实现一种 hooks 函数，该函数可以实现 state 的共享。
 
