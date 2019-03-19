@@ -62,27 +62,55 @@ react + egg + koa + webpack
     }
 ```
 
-手动实现 call
-```js
-Function.prototype.myCall = function(ctx) {
-    ctx = ctx || window;
-    ctx.fn = this;
-    const args = [...arguments].slice(1);
-    const result = ctx.fn(...args);
-    delete ctx.fn;
-    return result;
-}
+### 状态管理的一些思考
 
-// 手动实现 bind
-Function.prototype.myBind = function(ctx) {
-    const _this = this;
-    const args = [...arguments].slice(1);
-    return function F() {
-        if (this instanceof F) {
-            return new _this(...args, ...arguments);
-        }
-        return _this.apply(ctx, args.concat(arguments));
-    }
-}
-```
+> 工具质量 = 工具节省的时间/使用工具消耗的时间
+
+
+#### reducer + action 的真正作用?
+
+1. 复用数据更改逻辑？
+2. 使数据更改透明化，方便追踪 bug
+3. 方便做独立测试
+4. 可以扩展去表达复杂的更新逻辑
+
+> 扩展思维
+> 你真的需要知道数据是怎么变更的吗？是否可以实现一个类似 apollo-graphql 的库，你只需要通知什么时候去拉取数据，什么时候去更新数据，其他数据管理都交给数据层处理。
+> 当然，apollo-graphql 也可以很好的实现数据变更的可视化。
+
+
+#### reducer | action 的重新思考
+
+action 负责改 store 以外所有事，而 reducer 负责改 store，偶尔用来做数据处理。
+重新考虑这个问题，我们只有两类 action：reducer action 与 effect action。
+
+reducer action：改变 store。
+effect action：处理异步场景，能调用其他 action，不能修改 store。
+同步的场景，一个 reducer 函数就能处理，只有异步场景需要 effect action 处理掉异步部分，同步部分依然交给 reducer 函数，这两种 action 职责更清晰。
+
+#### 异步接口抽象出去，action 只处理本地 data，如何？
+
+1. 会违反聚合原则吗？
+2. 会破坏代码阅读性吗？
+3. 会阻碍对代码的理解吗？
+
+
+## 模块化的 state 更新机制
+
+### 目标
+
+1. 调用同一个 useCustomer 能够在各个组件共享状态
+2. 要实现 state 共享，必须使用 context
+3. 为了性能，必须在 context 的基础上实现定制化更新
+
+
+### 实现方案
+
+1. 多个 context
+   1. 需要在父组件包裹多个上下文，实现起来复杂，不具备扩展性
+2. hack hook 
+3. 单个 context 进行分发
+
+
+
 
