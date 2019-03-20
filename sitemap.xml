@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://winixt.github.io/js%20Number%E8%AF%A6%E8%A7%A3/</loc>
+    
+    <lastmod>2019-03-20T02:26:17.709Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://winixt.github.io/%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86requestAnimationFrame/</loc>
     
     <lastmod>2019-03-15T05:21:22.235Z</lastmod>
@@ -184,14 +191,14 @@
   </url>
   
   <url>
-    <loc>https://winixt.github.io/appcache/</loc>
+    <loc>https://winixt.github.io/box-sizing/</loc>
     
     <lastmod>2019-02-24T04:20:08.111Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://winixt.github.io/box-sizing/</loc>
+    <loc>https://winixt.github.io/appcache/</loc>
     
     <lastmod>2019-02-24T04:20:08.111Z</lastmod>
     
