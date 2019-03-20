@@ -16,10 +16,11 @@ tags:
 <!-- more -->
 
 ## 文章思路
+
 1. 描述 IEEE754 64双精度表示法
 2. 推出 Infinity、Number.MAX_VALUE、Number.MIN_VALUE 的表述
 3. 进一步推出 Number 的最大安全数表示，为什么是 Math.pow(2, 53) - 1
-4. 分析位运算 32位转换，如何将 64 位转换成 32 位
+4. 分析位运算 32 位转换，如何将 64 位转换成 32 位
 
 
 ## IEEE754 双精度表示
@@ -39,7 +40,7 @@ tags:
 2. S 表示符号位，0 为正，1 为负
 3. exponent 不是公式中 Math.pow(2, E) 中的 E，二是 E + 1023
 4. 前面提到，1 <= M < 2，可以表示 1.xxxxxx，其中 xxxxxxx 即是用 significand 存储
-   
+
 > 参考
 > 1. [IEEE754](https://link.zhihu.com/?target=http%3A//www.csee.umbc.edu/~tsimo1/CMSC455/IEEE-754-2008.)
 > 2. [IEEE754 可视化](http://bartaz.github.io/ieee754-visualization/)
@@ -91,3 +92,8 @@ IEEE754 要求浮点数以规范形式存储，即小数点前有一位非零数
 
 就是因为有截断这个动作，所以 Math.pow(2, 53) === Math.pow(2, 53) + 1，那么 Math.pow(2, 53) 就是不安全的。“它可以被不安全的数表示”
 
+### 位运算
+
+JS 在将两个整数进行位运算时，会先自动转换为32位有符号整数，完成后再将结果转换为64位。再转换为32位时，高子节将会被截断。
+
+[按位操作符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators);
