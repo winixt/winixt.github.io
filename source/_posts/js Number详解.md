@@ -76,11 +76,11 @@ Number.MAX_VALUE === Math.pow(2, 1023) * 1.xxxxxx
 ```
 也就是说，Number.MAX_VALUE 必须要加上一个被 IEEE754 四舍五入为 Math.pow(2, 970) 的数，才能被转换为 Infinity
 
-### Number.MAX_SAFE_VALUE
+### Number.MAX_SAFE_INTEGER
 
-javascript 的最大安全数为 Number.MAX_SAFE_VALUE，即：
+javascript 的最大安全数为 Number.MAX_SAFE_INTEGER，即：
 ```
-Math.pow(2, 53) - 1 === Number.MAX_SAFE_VALUE
+Math.pow(2, 53) - 1 === Number.MAX_SAFE_INTEGER
 ```
 
 **为什么 Math.pow(2, 53) - 1 才是最大安全整数呢？**
