@@ -4,6 +4,52 @@
 
     
   <url>
+    <loc>https://winixt.github.io/%E5%A4%9A%E7%AB%AF%E5%85%B1%E4%BA%AB%E5%AE%9E%E7%8E%B0/</loc>
+    <lastmod>2019-04-01T07:37:51.640Z</lastmod>
+    <data>
+        <display>
+        <title>多端共享实现</title>
+        <pubTime>2019-03-31T16:00:00.000Z</pubTime>
+        
+        <tag>react-native</tag>
+         
+        <tag>Flutter</tag>
+         
+        <tag>小程序</tag>
+         
+         
+           
+             
+              <breadCrumb title="native" url="https://winixt.github.io/categories/native/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://winixt.github.io/Map%20%E5%92%8C%20WeakMap/</loc>
+    <lastmod>2019-03-20T10:13:12.404Z</lastmod>
+    <data>
+        <display>
+        <title>js Map 和 WeakMap</title>
+        <pubTime>2019-03-19T16:00:00.000Z</pubTime>
+        
+        <tag>Map</tag>
+         
+        <tag>WeakMap</tag>
+         
+         
+           
+             
+              <breadCrumb title="js" url="https://winixt.github.io/categories/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://winixt.github.io/js%20Number%E8%AF%A6%E8%A7%A3/</loc>
     <lastmod>2019-03-20T02:26:17.709Z</lastmod>
     <data>
@@ -505,6 +551,26 @@
 
     
   <url>
+    <loc>https://winixt.github.io/appcache/</loc>
+    <lastmod>2019-02-24T04:20:08.111Z</lastmod>
+    <data>
+        <display>
+        <title>appcache</title>
+        <pubTime>2019-02-24T04:20:08.111Z</pubTime>
+        
+        <tag>appcache</tag>
+         
+         
+           
+             
+              <breadCrumb title="离线缓存" url="https://winixt.github.io/categories/%E7%A6%BB%E7%BA%BF%E7%BC%93%E5%AD%98/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://winixt.github.io/box-sizing/</loc>
     <lastmod>2019-02-24T04:20:08.111Z</lastmod>
     <data>
@@ -520,26 +586,6 @@
            
              
               <breadCrumb title="css" url="https://winixt.github.io/categories/css/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://winixt.github.io/appcache/</loc>
-    <lastmod>2019-02-24T04:20:08.111Z</lastmod>
-    <data>
-        <display>
-        <title>appcache</title>
-        <pubTime>2019-02-24T04:20:08.111Z</pubTime>
-        
-        <tag>appcache</tag>
-         
-         
-           
-             
-              <breadCrumb title="离线缓存" url="https://winixt.github.io/categories/%E7%A6%BB%E7%BA%BF%E7%BC%93%E5%AD%98/"/>
           
         </display>
     </data>
