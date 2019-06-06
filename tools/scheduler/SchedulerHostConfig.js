@@ -130,7 +130,7 @@ const animationTick = function(rafTime) {
 }
 
 requestHostCallback = function(callback, absoluteTimeout) {
-    sheduledHostCallback =  callback;
+    sheduledHostCallback = callback;
     timeoutTime = absoluteTimeout;
     if (isFlushingHostCallback || absoluteTimeout < 0) {
         // 不等待
