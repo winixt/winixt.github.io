@@ -409,28 +409,6 @@
     
     
   <url>
-    <loc>https://winixt.github.io/three.js%E4%B9%8B%E7%94%A8%E4%B8%80%E4%B8%AA%E5%9B%9B%E5%85%83%E6%95%B0%E4%BB%A3%E6%9B%BF%E4%B8%A4%E4%B8%AA3D%E5%90%91%E9%87%8F%E7%9A%84%E6%97%8B%E8%BD%AC/</loc>
-    <lastmod>2019-02-24T04:20:08.114Z</lastmod>
-    <data>
-        <display>
-        <title>用一个四元数代替两个3D向量的旋转</title>
-        <pubTime>2019-02-24T04:20:08.113Z</pubTime>
-        
-        <tag>webgl</tag>
-         
-        <tag>3D</tag>
-         
-         
-           
-             
-              <breadCrumb title="webgl" url="https://winixt.github.io/categories/webgl/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://winixt.github.io/webpack%E4%B9%8B%E4%BC%98%E5%8C%96/</loc>
     <lastmod>2019-02-24T04:20:08.114Z</lastmod>
     <data>
@@ -453,6 +431,28 @@
 
     
   <url>
+    <loc>https://winixt.github.io/three.js%E4%B9%8B%E7%94%A8%E4%B8%80%E4%B8%AA%E5%9B%9B%E5%85%83%E6%95%B0%E4%BB%A3%E6%9B%BF%E4%B8%A4%E4%B8%AA3D%E5%90%91%E9%87%8F%E7%9A%84%E6%97%8B%E8%BD%AC/</loc>
+    <lastmod>2019-02-24T04:20:08.114Z</lastmod>
+    <data>
+        <display>
+        <title>用一个四元数代替两个3D向量的旋转</title>
+        <pubTime>2019-02-24T04:20:08.113Z</pubTime>
+        
+        <tag>webgl</tag>
+         
+        <tag>3D</tag>
+         
+         
+           
+             
+              <breadCrumb title="webgl" url="https://winixt.github.io/categories/webgl/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://winixt.github.io/webpack%E4%B9%8B%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2019-02-24T04:20:08.114Z</lastmod>
     <data>
@@ -466,6 +466,28 @@
            
              
               <breadCrumb title="webpack" url="https://winixt.github.io/categories/webpack/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://winixt.github.io/react%20key/</loc>
+    <lastmod>2019-02-24T04:20:08.113Z</lastmod>
+    <data>
+        <display>
+        <title>react key</title>
+        <pubTime>2019-02-24T04:20:08.113Z</pubTime>
+        
+        <tag>react</tag>
+         
+        <tag>key</tag>
+         
+         
+           
+             
+              <breadCrumb title="react" url="https://winixt.github.io/categories/react/"/>
           
         </display>
     </data>
@@ -515,21 +537,19 @@
 
     
   <url>
-    <loc>https://winixt.github.io/react%20key/</loc>
-    <lastmod>2019-02-24T04:20:08.113Z</lastmod>
+    <loc>https://winixt.github.io/js%E5%BC%82%E6%AD%A5%E8%BF%9B%E5%8C%96%E5%8F%B2%E4%B9%8BPromise/</loc>
+    <lastmod>2019-02-24T04:20:08.112Z</lastmod>
     <data>
         <display>
-        <title>react key</title>
-        <pubTime>2019-02-24T04:20:08.113Z</pubTime>
+        <title>js 异步进化史之Promise</title>
+        <pubTime>2019-02-24T04:20:08.112Z</pubTime>
         
-        <tag>react</tag>
-         
-        <tag>key</tag>
+        <tag>Promise</tag>
          
          
            
              
-              <breadCrumb title="react" url="https://winixt.github.io/categories/react/"/>
+              <breadCrumb title="异步" url="https://winixt.github.io/categories/%E5%BC%82%E6%AD%A5/"/>
           
         </display>
     </data>
@@ -545,26 +565,6 @@
         <pubTime>2019-02-24T04:20:08.112Z</pubTime>
         
         <tag>Generator</tag>
-         
-         
-           
-             
-              <breadCrumb title="异步" url="https://winixt.github.io/categories/%E5%BC%82%E6%AD%A5/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://winixt.github.io/js%E5%BC%82%E6%AD%A5%E8%BF%9B%E5%8C%96%E5%8F%B2%E4%B9%8BPromise/</loc>
-    <lastmod>2019-02-24T04:20:08.112Z</lastmod>
-    <data>
-        <display>
-        <title>js 异步进化史之Promise</title>
-        <pubTime>2019-02-24T04:20:08.112Z</pubTime>
-        
-        <tag>Promise</tag>
          
          
            
